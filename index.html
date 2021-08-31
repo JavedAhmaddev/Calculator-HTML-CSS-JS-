@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        background-color: #ecedef;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        position: relative;
+      }
+      .box {
+        width: 30%;
+        margin: 5vh auto;
+        background-color: #ecedef;
+        border-radius: 10px;
+        color: #4d4d4d;
+        height: auto;
+      }
+      .ans {
+        background-color: #ff060a;
+        border: 1px solid #ff060a;
+        border-radius: 13px 13px 0 0;
+        width: 100%;
+        height: 20vh;
+        font-size: 100px;
+        color: #436362;
+        outline: none;
+        user-select: none;
+        font-weight: 50 0;
+      }
+      .btn-container {
+        background-color: #ffffff;
+        width: 100%;
+        height: auto;
+      }
+
+      .col {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pt {
+        padding-top: 10px;
+      }
+      .pb {
+        padding-bottom: 10px;
+      }
+      .btn {
+        width: 70px;
+        height: 70px;
+        background-color: #ecedef;
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        color: #436362;
+        font-weight: 900;
+        font-size: 30px;
+        margin: 10px 15px;
+      }
+      .bg {
+        background-color: #ff060a;
+        color: #ffffff;
+      }
+      .btnli{
+        background-color: #ffffff;
+        color: #4d4d4d;
+      }
+      input {
+        text-align: right;
+      }
+      .bcolor{
+        color: #ff060a;
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/f354486920.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <input type="text" class="ans" id="ans" placeholder="0" disabled />
+        <div class="btn-container">
+          <div class="row pt">
+            <div class="col">
+              <button class="btn" value="7" id="7" onclick="disp('7')">7</button>
+              <button class="btn" value="8" id="8" onclick="disp('8')">8</button>
+              <button class="btn" value="9" id="9" onclick="disp('9')">9</button>
+              <button class="btn" value="+" id="+" onclick="disp('+')">+</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <button class="btn" value="4" id="4" onclick="disp('4')">4</button>
+              <button class="btn" value="5" id="5" onclick="disp('5')">5</button>
+              <button class="btn" value="6" id="6" onclick="disp('6')">6</button>
+              <button class="btn" value="-" id="-" onclick="disp('-')">-</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <button class="btn" value="1" id="1" onclick="disp('1')">1</button>
+              <button class="btn" value="2" id="2" onclick="disp('2')">2</button>
+              <button class="btn" value="3" id="3" onclick="disp('3')">3</button>
+              <button class="btn pt" value="*" id="*" onclick="disp('*')">*</button>
+            </div>
+          </div>
+          <i class="far fa-backspace bcolor"></i>
+          <div class="row">
+            <div class="col">
+              <button class="btn" value="0" id="0" onclick="disp('0')">0</button>
+              <button class="btn" value="." id="." onclick="disp('.')">.</button>
+              <button class="btn" value="/" id="/" onclick="disp('/')">/</button>
+              <button class="btn bg" value="=" id="=" onclick="sol()">=</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <button class="btn bcolor" value="C" id="C" onclick="cl()">C</button>
+              <button class="btn bcolor" value="5" id="5" onclick="rm()"> <i class="fas fa-backspace"></i> </button>
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+
+        function disp(val)
+        {
+          document.getElementById("ans").value +=val;
+        }
+
+        function sol()
+        {
+          var x=document.getElementById("ans").value;
+          
+          var y=eval(x);
+        
+          document.getElementById("ans").value=y;
+        }
+        function cl()
+        {
+          document.getElementById("ans").value =" ";
+        }
+        function rm()
+        {
+          var x=document.getElementById("ans").value;
+          alert(x);
+          var y=x.slice(0,-1);
+          alert(y);
+          document.getElementById("ans").value=y;
+        }
+
+  
+      
+    </script>
+  </body>
+</html>
